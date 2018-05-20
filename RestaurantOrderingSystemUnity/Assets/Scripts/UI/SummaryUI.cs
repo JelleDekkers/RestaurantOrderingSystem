@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace OrderingSystem.UI {
@@ -6,7 +7,8 @@ namespace OrderingSystem.UI {
     [Serializable]
     public class SummaryUI {
 
-        public Text amountEarnedTxt, drinksServedTxt, foodServedTxt, drinksRevenueTxt, foodRevenueTxt;
+        [SerializeField]
+        private Text amountEarnedTxt, drinksServedTxt, foodServedTxt, drinksRevenueTxt, foodRevenueTxt;
 
         private OrderingSystem orderingSystem;
 

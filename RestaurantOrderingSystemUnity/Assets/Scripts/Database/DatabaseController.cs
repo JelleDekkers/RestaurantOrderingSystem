@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DatabaseController : MonoBehaviour {
+namespace OrderingSystem.Serializaion {
 
-    public const string getScoresUrl = "http://studenthome.hku.nl/~jelle.dekkers/kernmodule4/getScores.php";
+    public class DatabaseController : MonoBehaviour {
 
-    public ScoreData[] scores;
+        public const string productRetrievalUrl = "http://studenthome.hku.nl/~jelle.dekkers/RestaurantOrderingSystem/GetProducts.php";
 
-    private void Start() {
-        StartCoroutine(GetScores());
-    }
+        public ProductData[] scores;
 
-    private IEnumerator GetScores() {
-        using (WWW request = new WWW(getScoresUrl)) {
-            yield return request;
-            scores = CreateArrayFromJson(JsonHelper.FixJsonString(request.text));
+        private void Start() {
+            StartCoroutine(GetProducts());
         }
-        Debug.Log("Done retrieving scores");
-    }
 
-    public ScoreData[] CreateArrayFromJson(string jsonArray) {
-        return JsonHelper.FromJson<ScoreData>(jsonArray);
+        private IEnumerator GetProducts() {
+            using (WWW request = new WWW(productRetrievalUrl)) {
+                yield return request;
+                scores = CreateArrayFromJson(JsonHelper.FixJsonString(request.text));
+            }
+            Debug.Log("Done retrieving products");
+        }
+
+        public ProductData[] CreateArrayFromJson(string jsonArray) {
+            return JsonHelper.FromJson<ProductData>(jsonArray);
+        }
     }
 }

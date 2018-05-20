@@ -8,8 +8,10 @@ namespace OrderingSystem.UI {
     [Serializable]
     public class ProductsUI {
 
-        public GameObject productUIPrefab;
-        public Transform productUIParent;
+        [SerializeField]
+        private GameObject productUIPrefab;
+        [SerializeField]
+        private Transform productUIParent;
 
         private InputField[] inputFields;
 
