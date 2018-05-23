@@ -18,7 +18,7 @@ namespace OrderingSystem {
             orderHistory = new OrderHistory();
             systemUI.Initialize(this);
             systemUI.CreateProductInfoUI(products);
-            summaryUI.Init(this);
+            summaryUI.Initialize(this);
         }
 
         /// <summary>

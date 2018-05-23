@@ -12,11 +12,14 @@ namespace OrderingSystem.UI {
 
         private OrderingSystem orderingSystem;
 
-        public void Init(OrderingSystem system) {
+        public void Initialize(OrderingSystem system) {
             orderingSystem = system;
             system.onOrderPayed += UpdateUI;
         }
 
+        /// <summary>
+        /// Update UI elements to show the correct values
+        /// </summary>
         public void UpdateUI() {
             OrderingSystemStats stats = orderingSystem.stats;
             amountEarnedTxt.text = stats.totalRevenue.ToString();

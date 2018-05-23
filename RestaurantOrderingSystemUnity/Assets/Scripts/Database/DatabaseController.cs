@@ -8,7 +8,7 @@ namespace OrderingSystem.Serializaion {
 
         public const string productRetrievalUrl = "http://studenthome.hku.nl/~jelle.dekkers/RestaurantOrderingSystem/GetProducts.php";
 
-        public ProductData[] scores;
+        public ProductData[] products;
 
         private void Start() {
             StartCoroutine(GetProducts());
@@ -17,7 +17,7 @@ namespace OrderingSystem.Serializaion {
         private IEnumerator GetProducts() {
             using (WWW request = new WWW(productRetrievalUrl)) {
                 yield return request;
-                scores = CreateArrayFromJson(JsonHelper.FixJsonString(request.text));
+                products = CreateArrayFromJson(JsonHelper.FixJsonString(request.text));
             }
             Debug.Log("Done retrieving products");
         }

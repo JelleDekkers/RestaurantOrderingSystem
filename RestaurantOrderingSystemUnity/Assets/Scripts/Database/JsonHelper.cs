@@ -5,8 +5,13 @@ namespace OrderingSystem.Serializaion {
 
     public static class JsonHelper {
 
-        public static string FixJsonString(string json) {
-            json = "{\"Items\":" + json + "}";
+        /// <summary>
+        /// Converts php json to a usable c# json
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string FixJsonString(string json, string concat = "Items") {
+            json = "{\"" + concat + "\":" + json + "}";
             return json;
         }
 

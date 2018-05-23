@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace OrderingSystem {
 
+    /// <summary>
+    /// Class for keeping track of all paid orders
+    /// </summary>
     public class OrderHistory {
 
         public List<Order> Orders { get; private set; }

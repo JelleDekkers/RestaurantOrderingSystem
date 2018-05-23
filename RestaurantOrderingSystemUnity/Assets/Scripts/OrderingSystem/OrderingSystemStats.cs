@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace OrderingSystem {
 
+    /// <summary>
+    /// Class for keeping track of all necessary statistics
+    /// </summary>
     [Serializable]
     public class OrderingSystemStats {
 
